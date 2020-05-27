@@ -1,9 +1,8 @@
 <script>
   import { createEventDispatcher } from "svelte";
   export let content;
-  let checked = false;
-
   const dispatch = createEventDispatcher();
+  const handleClick = () => dispatch("markdone", { text: content });
 </script>
 
 <style>
@@ -17,6 +16,6 @@
 </style>
 
 <main>
-  <button on:click={() => dispatch('markdone')} />
+  <button on:click={handleClick} />
   <p>{content}</p>
 </main>
